@@ -9,18 +9,17 @@
   font-family: var(--primary-font);
   font-weight: 600;
   font-size: 0.75rem;
-  z-index: 1000;
 }
 
 .add-todo_modal {
   width: 100%;
   height: 100%;
-  /* background-color: red; */
   position: fixed;
   top: 0;
   left: 0;
   display: grid;
   place-content: center;
+  background-color: rgba(0, 0, 0, 0.542);
 }
 
 .add-todo_modal > .modal {
@@ -28,14 +27,16 @@
   height: 22rem;
   background-color: #ebe6d5;
   display: grid;
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 3rem 1fr;
   border-radius: 0.5rem;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.028);
 }
 
 .modal > .modal_title {
   display: grid;
-  place-content: center;
+  /* place-content: center; */
+  justify-content: center;
+  align-items: end;
 
   & h1 {
     color: black;

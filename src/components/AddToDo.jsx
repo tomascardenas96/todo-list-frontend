@@ -10,16 +10,14 @@ function AddToDo() {
     handleCreateNewTodo,
   } = useCreateNewTodo();
 
-  console.log(todoInput);
-
   return (
     <>
       <button className="add-todo" onClick={() => openCloseModal()}>
         Add task
       </button>
       {modalIsOpen && (
-        <div className="add-todo_modal">
-          <div className="modal">
+        <div className="add-todo_modal" onClick={() => openCloseModal()}>
+          <div className="modal" onClick={(event) => event.stopPropagation()}>
             <div className="modal_title">
               <h1>Create new Todo</h1>
             </div>

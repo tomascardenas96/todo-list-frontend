@@ -9,7 +9,7 @@ function useGetAllTodos() {
     async function getTodos() {
       try {
         setGetTodosLoading(true);
-        const response = await fetch("http://localhost:3050/todolist", {
+        const response = await fetch("http://localhost:3050/task", {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });

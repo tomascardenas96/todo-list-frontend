@@ -16,7 +16,7 @@ function useCreateNewTodo() {
     e.preventDefault();
     try {
       setCreateTodoLoading(true);
-      const response = await fetch("http://localhost:3050/todolist", {
+      const response = await fetch("http://localhost:3050/task", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(todoInput),

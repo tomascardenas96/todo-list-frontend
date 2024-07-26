@@ -7,7 +7,7 @@ function useDeleteTodo() {
   async function deleteTodo(todoId) {
     try {
       setDeleteLoading(true);
-      const response = await fetch(`http://localhost:3050/todolist/${todoId}`, {
+      const response = await fetch(`http://localhost:3050/task/${todoId}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });

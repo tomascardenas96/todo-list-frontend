@@ -12,14 +12,14 @@ function TodoCard({ description, todoId }) {
   };
 
   return (
-    <div className="todo-card" onClick={() => switchCheckbox()}>
+    <div className="todo-card" onClick={switchCheckbox}>
       <div className="todo-check">
         <input type="checkbox" checked={isChecked} />
       </div>
       <div className="todo-description">
         <p>{description}</p>
       </div>
-      <div className="todo-btn">
+      <div className="todo-btn" onClick={(event) => event.stopPropagation()}>
         <MdDelete className="todo-delete" onClick={() => deleteTodo(todoId)} />
       </div>
     </div>
