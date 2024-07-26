@@ -4,13 +4,13 @@ import TodoCard from "./components/TodoCard";
 import useGetAllTodos from "./hooks/useGetAllTodos";
 
 function App() {
-  const { todos } = useGetAllTodos();
+  const { todos, getTodosLoading, getTodosError } = useGetAllTodos();
 
   return (
     <main>
       <section>
         <div className="todo-list_title">
-          <h1>TODO LIST</h1>
+          <h1>TO-DO LIST</h1>
         </div>
 
         <div className="todo-list_body">
@@ -18,7 +18,11 @@ function App() {
             <AddToDo />
           </div>
           <div className="body-items">
-            {todos.length ? (
+            {getTodosError ? (
+              <img src="../src/assets/error.png" alt="error-todo" />
+            ) : getTodosLoading ? (
+              <h1 className="loading-spinner">Loading...</h1>
+            ) : todos.length ? (
               todos
                 .slice()
                 .reverse()
@@ -28,6 +32,7 @@ function App() {
                     description={todo.description}
                     todoId={todo.todoId}
                     status={todo.status}
+                    date={todo.createdAt}
                   />
                 ))
             ) : (

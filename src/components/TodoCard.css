@@ -1,8 +1,8 @@
 .todo-card {
-  width: 90%;
-  height: 3.5rem;
+  width: 95%;
+  height: 3.4rem;
   background-color: white;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   display: grid;
   grid-template-columns: 3.5rem 1fr 5rem;
   gap: 0.5rem;
@@ -26,9 +26,15 @@
 
 .todo-description {
   font-family: var(--primary-font);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.todo-date {
+  color: rgba(0, 0, 0, 0.502);
+  font-size: 0.8rem;
 }
 
 .todo-btn {
@@ -40,4 +46,7 @@
 
 .todo-delete {
   z-index: 1500;
+  background-color: rgba(12, 12, 12, 0.123);
+  padding: 0.3rem;
+  border-radius: 0.2rem;
 }
