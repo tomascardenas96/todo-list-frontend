@@ -1,9 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 function useGetAllTodos() {
   const [todos, setTodos] = useState([]);
   const [getTodosLoading, setGetTodosLoading] = useState(false);
   const [getTodosError, setGetTodosError] = useState(null);
+
+  //Web socket para actualizar en tiempo real el status(boolean) del objeto Todo.
+  useEffect(() => {
+    const socket = io("http://localhost:8001");
+
+    socket.on("switchTodoState", (updatedTodo) => {
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.todoId === updatedTodo.todoId ? updatedTodo : todo
+        )
+      );
+    });
+
+    return () => {
+      socket.off("switchTodoState");
+      socket.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     async function getTodos() {

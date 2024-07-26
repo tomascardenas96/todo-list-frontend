@@ -27,6 +27,7 @@ function App() {
                     key={todo.todoId}
                     description={todo.description}
                     todoId={todo.todoId}
+                    status={todo.status}
                   />
                 ))
             ) : (
